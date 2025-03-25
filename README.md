@@ -1,50 +1,48 @@
-# 👁️ EyeTrackR – Détection de fatigue par webcam
+# 😴 FatiguEye – Real-Time Fatigue Detection via Webcam
 
-> 🧠 Détection de micro-somnolence et de fatigue oculaire en temps réel grâce au suivi du regard via une webcam standard.
-
----
-
-## 🎯 Objectif
-
-**EyeTrackR** est un projet de vision par ordinateur qui permet d'analyser l'état de vigilance d'une personne en utilisant une simple webcam. Le système détecte :
-- Le clignement des yeux
-- La durée de fermeture des paupières
-- Les signes de micro-sommeil ou de baisse d'attention
-
-Il est conçu pour fonctionner en temps réel et fournir des **alertes intelligentes** en cas de fatigue détectée.
+> 👁️ A smart computer vision system that detects signs of fatigue, eye strain, and microsleep using a standard webcam.
 
 ---
 
-## 🔧 Technologies utilisées
+## 🎯 Purpose
 
-| Composant        | Rôle                                      |
+**FatiguEye** is a real-time fatigue detection system based on eye tracking and facial landmark analysis.  
+It helps identify early signs of drowsiness by measuring:
+- Eye blinks and blink frequency
+- Prolonged eyelid closure
+- Visual attention drop or microsleep episodes
+
+---
+
+## 🔧 Tech Stack
+
+| Component        | Role                                      |
 |------------------|-------------------------------------------|
-| Python           | Langage principal                         |
-| OpenCV           | Capture vidéo & affichage                 |
-| Mediapipe        | Suivi précis des yeux et du visage        |
-| NumPy            | Calculs mathématiques (EAR, stats)        |
-| Streamlit        | Interface web minimaliste et réactive     |
+| Python           | Main programming language                 |
+| OpenCV           | Video capture and display                 |
+| Mediapipe        | Face and eye landmark detection           |
+| NumPy            | Mathematical calculations (EAR, stats)    |
+| Streamlit        | Web interface for live visual feedback    |
 
 ---
 
-## 🧠 Fonctionnement
+## 🧠 How It Works
 
-Le système repose sur le **EAR (Eye Aspect Ratio)** :
-- Mesure la hauteur/largeur de l’œil à partir des landmarks faciaux.
-- Un ratio faible indique un œil fermé.
+FatiguEye uses the **Eye Aspect Ratio (EAR)** to track how open or closed the eyes are across video frames.
 
-**Pipeline principal** :
-1. Détection du visage et des yeux (landmarks)
-2. Calcul du EAR en temps réel
-3. Suivi des clignements + durées de fermeture
-4. Affichage + Alerte si seuils dépassés
+**Pipeline overview**:
+1. Webcam feed is captured in real-time
+2. Face and eyes are detected via Mediapipe
+3. EAR is calculated frame-by-frame
+4. Eye closure and blink patterns are analyzed
+5. Alerts are triggered when drowsiness is detected
 
 ---
 
-## 🚀 Lancer l'application
+## 🚀 Getting Started
 
 ```bash
-git clone https://github.com/ton-user/eyetrackr.git
-cd eyetrackr
+git clone https://github.com/Tirovo/fatigueye.git
+cd fatigueye
 pip install -r requirements.txt
 streamlit run app.py
