@@ -8,41 +8,54 @@
 
 **FatiguEye** is a real-time fatigue detection system based on eye tracking and facial landmark analysis.  
 It helps identify early signs of drowsiness by measuring:
-- Eye blinks and blink frequency
-- Prolonged eyelid closure
-- Visual attention drop or microsleep episodes
+- 👁️ Eye Aspect Ratio (EAR)
+- 🔁 Blink frequency
+- ⏱️ Prolonged eyelid closure
+- ⚠️ Microsleep events
 
----
-
-## 🔧 Tech Stack
-
-| Component        | Role                                      |
-|------------------|-------------------------------------------|
-| Python           | Main programming language                 |
-| OpenCV           | Video capture and display                 |
-| Mediapipe        | Face and eye landmark detection           |
-| NumPy            | Mathematical calculations (EAR, stats)    |
-| Streamlit        | Web interface for live visual feedback    |
+Ideal for driver monitoring, industrial safety, or ergonomic fatigue prevention.
 
 ---
 
 ## 🧠 How It Works
 
-FatiguEye uses the **Eye Aspect Ratio (EAR)** to track how open or closed the eyes are across video frames.
+FatiguEye uses [MediaPipe Face Mesh](https://google.github.io/mediapipe/) to extract eye landmarks, and computes the **EAR (Eye Aspect Ratio)** on each video frame.
 
-**Pipeline overview**:
-1. Webcam feed is captured in real-time
-2. Face and eyes are detected via Mediapipe
-3. EAR is calculated frame-by-frame
-4. Eye closure and blink patterns are analyzed
-5. Alerts are triggered when drowsiness is detected
+### 📡 Processing pipeline:
+1. 🎥 Webcam feed is captured in real-time
+2. 🧠 Facial landmarks (eyes) are detected with Mediapipe
+3. 📏 EAR is calculated per eye
+4. 🧮 Blink count and eye closure duration are analyzed
+5. 🔔 Fatigue alerts are raised (visual + audio)
 
 ---
 
-## 🚀 Getting Started
+## 🚀 Demo Preview
+
+> 
+
+<img src="assets/demo.gif" alt="FatiguEye demo" width="700">
+
+---
+
+## 💻 Technologies Used
+
+| Tech        | Description                             |
+|-------------|-----------------------------------------|
+| Python      | Core language                           |
+| OpenCV      | Webcam video processing + overlays      |
+| MediaPipe   | Face mesh & eye landmark detection      |
+| NumPy       | EAR computation                         |
+| Streamlit   | Live web dashboard                      |
+| winsound    | Audio alert (Windows only)              |
+
+---
+
+## 📦 Installation
 
 ```bash
 git clone https://github.com/Tirovo/fatigueye.git
 cd fatigueye
+python -m venv venv
+source venv/bin/activate  # Or venv\Scripts\activate on Windows
 pip install -r requirements.txt
-streamlit run app.py
