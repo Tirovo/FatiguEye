@@ -1,6 +1,9 @@
 # 😴 FatiguEye – Real-Time Fatigue Detection via Webcam
 
- > A smart computer vision system that detects signs of fatigue, eye strain, and microsleep using a standard webcam.
+## 🚀 Overview
+![Main Preview](assets/img/main.png)
+
+A smart computer vision system that detects signs of fatigue, eye strain, and microsleep using a standard webcam.
 
 ---
 
